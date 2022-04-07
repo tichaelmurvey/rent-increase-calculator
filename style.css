@@ -1,0 +1,109 @@
+body{
+    margin: 0;
+    padding: 0;
+    background: #20232b;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.5rem;
+}
+
+p {
+    margin-bottom: .9rem;
+}
+
+.container{
+    background: white;
+    border-radius: 20px;
+    margin: 10% 10%;
+    color: black;
+    padding: 10px 30px;
+    min-width: min-content;
+}
+
+.fields {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+.secondary {
+    font-weight: 400;
+    font-size: 1.3rem;
+}
+
+input {
+    font-size: 1.5rem;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 50px;
+    border: 2px solid black;
+    border-radius: 5px;
+    text-align: center;
+}
+
+button {
+    display: block;
+    margin: 14px auto;
+    width: 50%;
+    background: #861202;
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 2px 2px #ac2b1a;
+    font-weight: 700;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 12px;
+    padding: 10px;
+}
+
+label, input, p, .date{
+    text-align: center;
+    width: 100%;
+    font-weight: 500;
+}
+
+.results{
+    display: none;
+}
+
+.value {
+    padding: 12px 0;
+    font-weight: 900;
+}
+
+
+.topline, .midline {
+    box-sizing: border-box;
+    border: 1px solid #8fbaf3;
+    margin: 30px auto;
+    background-color: #8fbaf3;
+    border-radius: 12px;
+
+}
+
+.inputicon{
+    position: relative;
+    width: 100%;
+}
+
+.inputicon .icon{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 10px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    text-emphasis: none;
+}
+
+@media only screen and (min-width: 900px){
+    .date {
+        flex-basis: 45%;
+        margin: 20px 0;
+        padding: 0 20px;
+    }
+}

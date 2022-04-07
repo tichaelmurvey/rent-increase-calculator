@@ -4,18 +4,56 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
     <title>Document</title>
   </head>
   <body>
-    <div id="comic"></div>
-    <label for="Q1">Date of last rental increase (DD/MM/YY)</label>
-    <input id="Q1" type="text" />
-    <label for="Q2">Date of proposed rental increase (DD/MM/YY)</label>
-    <input id="Q2" type="text" />
-    <label for="current-rent">Current rent $</label>
-    <input id="current-rent" type="text" />
-    <button onclick="calculate()" id="calculate">Calculate</button>
-    <div id="result"></div>
+    <div class="container">
+    <h1>Canberra rent increase calculator</h1>
+      <div class="fields">
+        <div class="date">
+      <label for="Q1" >
+        <p>Date of last rental increase<br />
+        <span class="secondary">(Or start of lease)</span></p>
+      </label>
+      <input id="Q1" placeholder="DD/MM/YYYY" type="text" />
+    </div>
+    <div class="date">
+      <label for="Q2" >
+        <p>Date of proposed rental increase</p>
+
+        </label>
+      <input id="Q2" placeholder="DD/MM/YYYY" type="text" />
+    </div>
+      <label for="current-rent">
+        <p>Current rent<br />
+          <span class="secondary">(per week)</span>
+        </p>
+
+        </label>
+      <div class="inputicon">
+      <input id="current-rent" type="text" />
+      <div class="icon">$
+      </div>
+    </div>
+    </div>
+      <button onclick="calculate()" id="calculate">Calculate</button>
+      
+      <div id="result" class="results">
+        <div class="topline">
+          <p>Maximum new rent <br />
+          <span class="secondary">(per week)</span></p>
+          <p id="max-new-rent" class="value">$110</p>
+          </div>
+          <div class="midline">
+          <p class="secondary">Allowable rent increase</p>
+          <p id="allowable-increase" class="value">$10</p>
+        </div>
+      </div>
+  </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="

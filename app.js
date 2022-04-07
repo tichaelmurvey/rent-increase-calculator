@@ -1,8 +1,9 @@
 async function calculate(){
+    console.log("calculating");
     start_parts = $("#Q1").val().split("/");
     end_parts = $("#Q2").val().split("/");
-    start_date = new Date("20" + start_parts[2], start_parts[1]-1, start_parts[0]);
-    end_date = new Date("20" + end_parts[2], end_parts[1]-1, end_parts[0]);
+    start_date = new Date(start_parts[2], start_parts[1]-1, start_parts[0]);
+    end_date = new Date(end_parts[2], end_parts[1]-1, end_parts[0]);
     start = findQuarter(start_date);
     end = findQuarter(end_date);
     console.log(start);
@@ -51,13 +52,13 @@ fetch(request).then(
             allowable_increase = Math.round(allowable_increase*100)/100;
             max_increase = Math.round(max_increase);
             max_new_rent = Math.round(max_new_rent);
-            $("#result").empty();
-            $("#result").append("<p>" + 'Starting quarter CPI: ' + qstart_cpi + "</p>");
-            $("#result").append("<p>" + 'Ending quarter CPI: ' + qend_cpi + "</p>");
-            $("#result").append("<p>" + 'Change in CPI: ' + cpi_change + "%</p>");
-            $("#result").append("<p>" + 'Allowable increase: ' + allowable_increase + "%</p>");
-            $("#result").append("<p>" + 'Maximum allowable increase: $' + max_increase + "</p>");
-            $("#result").append("<p>" + 'Maximum new rent per week: $' + max_new_rent + "</p>");
+            $("#result").slideDown();
+            $("#max-new-rent").text("$" + max_new_rent);
+            $("#allowable-increase").text("$" + max_increase);
+            // $("#result").append("<p>" + 'Maximum allowable increase: $' + max_increase + "</p>");
+            // $("#result").append("<p>" + 'Starting quarter CPI: ' + qstart_cpi + "</p>");
+            // $("#result").append("<p>" + 'Ending quarter CPI: ' + qend_cpi + "</p>");
+            // $("#result").append("<p>" + 'Change in CPI: ' + cpi_change + "%</p>");
         }
     )
 }
