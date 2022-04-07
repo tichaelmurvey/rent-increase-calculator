@@ -1,9 +1,30 @@
 async function calculate(){
-    start = document.getElementById("Q1").value;
-    end = document.getElementById("Q2").value;
+    start_parts = $("#Q1").val().split("/");
+    end_parts = $("#Q2").val().split("/");
+    start_date = new Date("20" + start_parts[2], start_parts[1]-1, start_parts[0]);
+    end_date = new Date("20" + end_parts[2], end_parts[1]-1, end_parts[0]);
+    start = findQuarter(start_date);
+    end = findQuarter(end_date);
+    console.log(start);
+    console.log(end);
     getObs(start, end);
 }
 
+function findQuarter(date){
+    quarterData = '';
+    month = date.getMonth();
+    if(month < 3){
+        quarterData = "Q1";
+    } else if(month < 6){
+        quarterData = "Q2";
+    } else if(month < 9){
+        quarterData = "Q3";
+    } else {
+        quarterData = "Q4";
+    }
+    quarterData = date.getFullYear() + "-" + quarterData;
+    return quarterData;
+}
 async function getObs(startQtr, endQtr){
 const requestURL = 'https://api.data.abs.gov.au/data/ABS%2CCPI%2C1.0.0/1.115522.10.8.Q?startPeriod=' + startQtr + '&endPeriod=' + endQtr + '&detail=dataonly';
 
