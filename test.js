@@ -17,14 +17,15 @@ fetch(request).then(
     ).then(
         (value) => {
             results = value['data']['dataSets'][0]['series']['0:0:0:0:0']['observations'];
+            console.log(results)
             results_array = $.map(results, function(el) {return el});
             qstart_cpi = results_array[0];
             qend_cpi = results[results_array.length -1];
             cpi_change = 100*(qend_cpi-qstart_cpi)/qstart_cpi;
             allowable_increase = cpi_change*1.1
-            current_rent = $("#current-rent");
-            max_increase = current_rent*allowable_increase;
-            max_new_rent = current_rent + max_increase;
+            current_rent = $("#current-rent").val();
+            max_increase = current_rent*(allowable_increase/100);
+            max_new_rent = Number(current_rent) + max_increase;
             cpi_change = Math.round(cpi_change*100)/100;
             allowable_increase = Math.round(allowable_increase*100)/100;
             max_increase = Math.round(max_increase);
@@ -34,8 +35,8 @@ fetch(request).then(
             $("#result").append("<p>" + 'Ending quarter CPI: ' + qend_cpi + "</p>");
             $("#result").append("<p>" + 'Change in CPI: ' + cpi_change + "%</p>");
             $("#result").append("<p>" + 'Allowable increase: ' + allowable_increase + "%</p>");
-            $("#result").append("<p>" + 'Allowable increase: $' + allowable_increase + "%</p>");
-            $("#result").append("<p>" + 'Maximum new rent: ' + allowable_increase + "%</p>");
+            $("#result").append("<p>" + 'Maximum allowable increase: $' + max_increase + "</p>");
+            $("#result").append("<p>" + 'Maximum new rent per week: $' + max_new_rent + "</p>");
         }
     )
 }
