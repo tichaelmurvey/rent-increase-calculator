@@ -10,6 +10,11 @@ body{
 p {
     margin-bottom: .9rem;
 }
+label, input, .date{
+    text-align: center;
+    width: 100%;
+    font-weight: 00;
+}
 
 .container{
     background: white;
@@ -25,13 +30,23 @@ p {
     flex-wrap: wrap;
 }
 
+h1, h2 {
+    text-align: center;
+}
+
 h1 {
     font-size: 3rem;
-    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
 }
 .secondary {
     font-weight: 400;
-    font-size: 1.3rem;
+}
+
+.primary {
+    font-weight: 500;
 }
 
 input {
@@ -59,11 +74,19 @@ button {
     padding: 10px;
 }
 
-label, input, p, .date{
-    text-align: center;
-    width: 100%;
-    font-weight: 500;
+a {
+    color: #861202;
+    font-weight: 600;
 }
+
+a:hover {
+    color: #690c00;
+}
+
+button:hover {
+    background-color:#690c00;
+}
+
 
 .results{
     display: none;
@@ -123,4 +146,34 @@ label, input, p, .date{
         width: min-content;
         min-width: 50%;
     }
+    .options{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    
+    .options p{
+        max-width: 45%;
+        padding: 0 12px;
+    
+    }
 }
+.options p{
+    padding: 3%;
+    box-sizing: border-box;
+    background-color: #caddf5;
+}
+
+/* .options p:nth-child(1){
+    background-color: #b2fab6;
+} */
+
+/* .options p:nth-child(2){
+    border: #f5f4ca;
+}
+.options p:nth-child(3){
+    border: #caf5dd;
+}
+.options p:nth-child(4){
+    border: #eecaf5;
+}  */
