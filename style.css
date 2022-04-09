@@ -9,11 +9,12 @@ body{
 
 p {
     margin-bottom: .9rem;
+    text-align: center;
 }
 label, input, .date{
     text-align: center;
     width: 100%;
-    font-weight: 00;
+    font-weight: 500;
 }
 
 .container{
@@ -23,6 +24,49 @@ label, input, .date{
     color: black;
     padding: 10px 30px;
     min-width: min-content;
+}
+
+.i-made-this {
+    border-radius: 20px;
+    margin: 5% 10%;
+    padding: 10px 30px;
+    min-width: min-content;
+    border: 4px dashed white;
+    border-radius: 0;
+    font-size: 1.2rem;
+}
+
+.attribution {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+.attribution > * {
+    margin: 0 1%;
+}
+
+.attribution img{
+    align-self: center;
+    max-width: 200px;
+    min-width: 15%;
+}
+
+ul {
+    list-style: none;
+    text-align: center;
+    line-height: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    font-weight: 500;
+    color: #ff5640;
+}
+
+a:hover {
+    color: #ffa397;
 }
 
 .fields {
@@ -74,12 +118,12 @@ button {
     padding: 10px;
 }
 
-a {
+.container a {
     color: #861202;
     font-weight: 600;
 }
 
-a:hover {
+.container a:hover {
     color: #690c00;
 }
 
@@ -177,3 +221,11 @@ button:hover {
 .options p:nth-child(4){
     border: #eecaf5;
 }  */
+
+.explainer {
+    display: none;
+}
+
+.explainer span {
+    font-weight: 500;
+}

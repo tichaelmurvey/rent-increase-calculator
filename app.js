@@ -11,6 +11,14 @@ async function calculate(){
     getObs(start, end);
 }
 
+async function explain(){
+    console.log("explaining");
+    $(".explainer").slideDown();
+    $("#explainer").attr('aria-expanded', function (i, attr) {
+        return attr == 'true' ? 'false' : 'true'
+    });
+}
+
 function findQuarter(date){
     quarterData = '';
     month = date.getMonth();
@@ -55,7 +63,14 @@ fetch(request).then(
             $("#result").slideDown();
             $("#max-new-rent").text("$" + max_new_rent);
             $("#allowable-increase").text("$" + max_increase);
-            // $("#result").append("<p>" + 'Maximum allowable increase: $' + max_increase + "</p>");
+            $("#start").append(start);
+            $("#qstart_cpi").append(qstart_cpi);
+            $("#end").append(end);
+            $("#qend_cpi").append(qend_cpi);
+            $("#cpi_change").append(cpi_change);
+            $("#allowable_increase").append(allowable_increase);
+            $("#max_increase").append(max_increase);
+            //$("#result").append("<p>" + 'Maximum allowable increase: $' + max_increase + "</p>");
             // $("#result").append("<p>" + 'Starting quarter CPI: ' + qstart_cpi + "</p>");
             // $("#result").append("<p>" + 'Ending quarter CPI: ' + qend_cpi + "</p>");
             // $("#result").append("<p>" + 'Change in CPI: ' + cpi_change + "%</p>");

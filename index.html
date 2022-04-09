@@ -52,12 +52,23 @@
           <p class="secondary">Allowable rent increase</p>
           <p id="allowable-increase" class="value">$10</p>
         </div>
+        <button id="explainer" onclick="explain()" aria-expanded="false">How was this calculated?</button>
       </div>
+  </div>
+  <div class="explainer container">
+    <h2>How this was calculated</h2>
+    <p>The maximum allowable increase under the rules is 110% of the change in Canberra rental prices since your last rental increase, or since the lease began.</p>
+    <p>The change in rental prices is represented by the Consumer Price Index (CPI) for rent in Canberra.</p>
+    <p>The start of your tenancy was in <span id="start"></span>, when the CPI for Canberra rents was <span id="qstart_cpi"></span>.</p>
+    <p>The most recent CPI data from the date of the rental increase is <span id="end"></span>, at which time the CPI was <span id="qend_cpi"></span>.</p>
+    <p>This gives a percentage difference of <span id="cpi_change"></span>%.</p>
+    <p>To find the maximum allowable change, we multiple by 110%, which is <span id="allowable_increase"></span>%.</p>
+    <p>To find the allowable rent increase, we multiple this number by your current rent, which gives us <span id="max_increase">$</span>.</p>
   </div>
   <div class="container">
     <h2>What to do if a rent increase is too high</h2>
     <p>The ACT has rules about how much rent can be increased.</p>
-    <p>If your landlord or property manager asks for a rent increase more than what is allowed, you can refuse the request.</p>
+    <p>If your landlord or property manager asks for a rent increase more than what is allowed, <span class="primary">you can refuse the request.</span></p>
     <p>Either you or the landlord can apply to the ACAT for a resolution.</p>
     <div class="options">
     <p>If you are being asked for a rent increase above the allowable amount, consider contacting the <a href="https://www.acat.act.gov.au/case-types/rental-disputes">ACT legal aid tenancy service</a> for advice.</p>
@@ -66,8 +77,38 @@
     <p>For general information about renting in Canberra, you can use the <a href="https://justice.act.gov.au/sites/default/files/2021-01/Renting%20Book%202021.pdf">ACT Government's Renting Book (PDF)</a></p>
   </div>
   </div>
-  <div class="container">
-    <h2>How this was calculated</h2>
+  <div class="note container">
+    <h2>A note from the author</h2>
+    <p>It's a bit ridiculous that the ACT doesn't provide a tool like this. It took me a few weekends to put together.</p>
+    <p>The recommended method is to rifle through ABS spreadsheets, find the relevant numbers and do the maths.</p>
+    <p>This isn't accessible to the vast majority of renters. This is part of why we see constant cases of renters bullied into extreme rent increases.</p>
+    <p>If anyone from the ACT government wants to pay me for this tool, you can reach me at <a href="mailto:hello@michaelturvey.online">hello@michaelturvey.online</a></p>
+  </div>
+  <div class="i-made-this">
+    <div class="attribution">
+    <img src="me.png" alt="Picture of Michael Turvey, a good-looking young person with blond hair">
+    <div>
+    <h2 class="intro">Hey, I made this.</h2>
+    <p>My name's Michael. You can find me on:</p>
+    <ul>
+      <li><a href="https://github.com/tichaelmurvey">GitHub (tichaelmurvey)</a></li>
+      <li><a href="https://twitter.com/tichaelmurvey">Twitter (@tichaelmurvey)</a></li>
+      <li><a href="mailto:hello@michaelturvey.online">Email (hello@michaelturvey.online)</a></li>
+    </ul>
+  </div>
+    <div>
+    <p>I had help from Andrew. You can find him on:
+    </p>
+    <ul>
+      <li><a href="https://github.com/ajdlinux">GitHub (ajdlinux)</a></li>
+      <li><a href="https://twitter.com/ajdlinux">Twitter (@ajdlinux)</a></li>
+      <li><a href="mailto:andrew@donnellan.id.au">Email (andrew@donnellan.id.au)</a></li>
+    </ul>
+  </div>
+</div>
+  <div class="endline">
+    <p>We help run <a href="https://www.greatercanberra.org/">Greater Canberra</a>, an organisation working to legalise more housing and bring down rents and prices. Come join us!</p>
+  </div>
   </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
