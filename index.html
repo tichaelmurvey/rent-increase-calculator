@@ -4,119 +4,227 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Canberra rent increase calculator</title>
     <meta property="og:title" content="Canberra rent increase calculator" />
-<meta property="og:description" content="Find out how much your rent can be increased" />
-<meta property="og:image" content="/assets/housing-market.jpg" />
-
+    <meta
+      property="og:description"
+      content="Find out how much your rent can be increased"
+    />
+    <meta property="og:image" content="/assets/housing-market.jpg" />
   </head>
   <body>
     <div class="container">
-    <h1>Find out how much your rent can be increased</h1>
+      <h1>Find out how much your rent can be increased</h1>
       <div class="fields">
         <div class="date">
-      <label for="Q1" >
-        <p class="primary">Date of last rental increase<br />
-        <span class="secondary">(Or start of lease)</span></p>
-      </label>
-      <input id="Q1" placeholder="DD/MM/YYYY" type="text" />
-    </div>
-    <div class="date">
-      <label for="Q2" >
-        <p class="primary">Date of proposed rental increase</p>
-
+          <label for="Q1">
+            <p class="primary">
+              Date of last rental increase<br />
+              <span class="secondary">(Or start of lease)</span>
+            </p>
+          </label>
+          <input id="Q1" placeholder="DD/MM/YYYY" type="text" />
+        </div>
+        <div class="date">
+          <label for="Q2">
+            <p class="primary">Date of proposed rental increase</p>
+          </label>
+          <input id="Q2" placeholder="DD/MM/YYYY" type="text" />
+        </div>
+        <label for="current-rent">
+          <p class="primary">
+            Current rent<br />
+            <span class="secondary">(per week)</span>
+          </p>
         </label>
-      <input id="Q2" placeholder="DD/MM/YYYY" type="text" />
-    </div>
-      <label for="current-rent">
-        <p class="primary">Current rent<br />
-          <span class="secondary">(per week)</span>
-        </p>
-
-        </label>
-      <div class="current-rent">
-      <input id="current-rent" type="text" />
-      <div class="icon">$
+        <div class="current-rent">
+          <input id="current-rent" type="text" />
+          <div class="icon">$</div>
+        </div>
       </div>
-    </div>
-    </div>
       <button onclick="calculate()" id="calculate">Calculate</button>
-      
+
       <div id="result" class="results">
         <div class="topline">
-          <p>Maximum new rent <br />
-          <span class="secondary">(per week)</span></p>
+          <p>
+            Maximum new rent <br />
+            <span class="secondary">(per week)</span>
+          </p>
           <p id="max-new-rent" class="value">$110</p>
-          </div>
-          <div class="midline">
+        </div>
+        <div class="midline">
           <p class="secondary">Allowable rent increase</p>
           <p id="allowable-increase" class="value">$10</p>
         </div>
-        <button id="explainer" onclick="explain()" aria-expanded="false">How was this calculated?</button>
+        <button id="explainer" onclick="explain()" aria-expanded="false">
+          How was this calculated?
+        </button>
       </div>
-  </div>
-  <div class="explainer container">
-    <h2>How this was calculated</h2>
-    <p>The maximum allowable increase under the rules is 110% of the change in Canberra rental prices since your last rental increase, or since the lease began.</p>
-    <p>The change in rental prices is represented by the Consumer Price Index (CPI) for rent in Canberra.</p>
-    <p>The start of your tenancy was in <span id="start"></span>, when the CPI for Canberra rents was <span id="qstart_cpi"></span>.</p>
-    <p>The most recent CPI data from the date of the rental increase is <span id="end"></span>, at which time the CPI was <span id="qend_cpi"></span>.</p>
-    <p>This gives a percentage difference of <span id="cpi_change"></span>%.</p>
-    <p>To find the maximum allowable change, we multiple by 110%, which is <span id="allowable_increase"></span>%.</p>
-    <p>To find the allowable rent increase, we multiple this number by your current rent, which gives us <span id="max_increase">$</span>.</p>
-  </div>
-  <div class="container">
-    <h2>What to do if a rent increase is too high</h2>
-    <p>The ACT has rules about how much rent can be increased.</p>
-    <p>If your landlord or property manager asks for a rent increase more than what is allowed, <span class="primary">you can refuse the request.</span></p>
-    <p>Either you or the landlord can apply to the ACAT for a resolution.</p>
-    <div class="options">
-    <p>If you are being asked for a rent increase above the allowable amount, consider contacting the <a href="https://www.acat.act.gov.au/case-types/rental-disputes">ACT legal aid tenancy service</a> for advice.</p>
-    <p>You can read more about the rules and how to apply for a review at <a href="https://www.acat.act.gov.au/case-types/rental-disputes/rent-increases">the ACAT website.</a></p>
-    <p>You can ask questions and read about other people's experiences with rent increases on the <a href="https://www.facebook.com/groups/canberrarenters">Canberra Renters Facebook Group</a>.</p>
-    <p>For general information about renting in Canberra, you can use the <a href="https://justice.act.gov.au/sites/default/files/2021-01/Renting%20Book%202021.pdf">ACT Government's Renting Book (PDF)</a></p>
-  </div>
-  </div>
-  <div class="note container">
-    <h2>A note from the author</h2>
-    <p>It's a bit ridiculous that the ACT doesn't provide a tool like this. It took me a few weekends to put together.</p>
-    <p>The recommended method is to rifle through ABS spreadsheets, find the relevant numbers and do the maths.</p>
-    <p>This isn't accessible to the vast majority of renters. This is part of why we see constant cases of renters bullied into extreme rent increases.</p>
-    <p>If anyone from the ACT government wants to pay me for this tool, you can reach me at <a href="mailto:hello@michaelturvey.online">hello@michaelturvey.online</a></p>
-  </div>
-  <div class="i-made-this">
-    <h2 class="intro">Hey, I made this</h2>
-    <div class="attribution">
-    <img src="assets/me.jpg" alt="Picture of Michael Turvey, a good-looking young person with blond hair">
-    <div>
-    <p>My name's Michael. You can find me on:</p>
-    <ul>
-      <li><a href="https://github.com/tichaelmurvey">GitHub (tichaelmurvey)</a></li>
-      <li><a href="https://twitter.com/tichaelmurvey">Twitter (@tichaelmurvey)</a></li>
-      <li><a href="mailto:hello@michaelturvey.online">Email (hello@michaelturvey.online)</a></li>
-    </ul>
-  </div>
-    <div>
-    <p>I had help from Andrew. You can find him on:
-    </p>
-    <ul>
-      <li><a href="https://github.com/ajdlinux">GitHub (ajdlinux)</a></li>
-      <li><a href="https://twitter.com/ajdlinux">Twitter (@ajdlinux)</a></li>
-      <li><a href="mailto:andrew@donnellan.id.au">Email (andrew@donnellan.id.au)</a></li>
-    </ul>
-  </div>
-</div>
-  <div class="endline">
-    <p>We help run <a href="https://www.greatercanberra.org/">Greater Canberra</a>, an organisation working to legalise more housing and bring down rents and prices. Come join us!</p>
-  </div>
-  </div>
-  <div class="error">
-    <p>Is there a problem with this site? <a href="mailto:hello@michaelturvey.online">Email me</a> with a description of the problem and I'll try to fix it.</p>
-  </div>
+    </div>
+    <div class="explainer container">
+      <h2>How this was calculated</h2>
+      <p>
+        The maximum allowable increase under the rules is 110% of the change in
+        Canberra rental prices since your last rental increase, or since the
+        lease began.
+      </p>
+      <p>
+        The change in rental prices is represented by the Consumer Price Index
+        (CPI) for rent in Canberra.
+      </p>
+      <p>
+        The start of your tenancy was in <span id="start"></span>, when the CPI
+        for Canberra rents was <span id="qstart_cpi"></span>.
+      </p>
+      <p>
+        The most recent CPI data from the date of the rental increase is
+        <span id="end"></span>, at which time the CPI was
+        <span id="qend_cpi"></span>.
+      </p>
+      <p>
+        This gives a percentage difference of <span id="cpi_change"></span>%.
+      </p>
+      <p>
+        To find the maximum allowable change, we multiple by 110%, which is
+        <span id="allowable_increase"></span>%.
+      </p>
+      <p>
+        To find the allowable rent increase, we multiple this number by your
+        current rent, which gives us <span id="max_increase">$</span>.
+      </p>
+    </div>
+    <div class="container">
+      <h2>What to do if a rent increase is too high</h2>
+      <p>The ACT has rules about how much rent can be increased.</p>
+      <p>
+        If your landlord or property manager asks for a rent increase more than
+        what is allowed,
+        <span class="primary">you can refuse the request.</span>
+      </p>
+      <p>Either you or the landlord can apply to the ACAT for a resolution.</p>
+      <div class="options">
+        <p>
+          If you are being asked for a rent increase above the allowable amount,
+          consider contacting the
+          <a href="https://www.acat.act.gov.au/case-types/rental-disputes"
+            >ACT legal aid tenancy service</a
+          >
+          for advice.
+        </p>
+        <p>
+          You can read more about the rules and how to apply for a review at
+          <a
+            href="https://www.acat.act.gov.au/case-types/rental-disputes/rent-increases"
+            >the ACAT website.</a
+          >
+        </p>
+        <p>
+          You can ask questions and read about other people's experiences with
+          rent increases on the
+          <a href="https://www.facebook.com/groups/canberrarenters"
+            >Canberra Renters Facebook Group</a
+          >.
+        </p>
+        <p>
+          For general information about renting in Canberra, you can use the
+          <a
+            href="https://justice.act.gov.au/sites/default/files/2021-01/Renting%20Book%202021.pdf"
+            >ACT Government's Renting Book (PDF)</a
+          >
+        </p>
+      </div>
+    </div>
+    <div class="note container">
+      <h2>A note from the author</h2>
+      <p>
+        It's a bit ridiculous that the ACT doesn't provide a tool like this. It
+        took me a few weekends to put together.
+      </p>
+      <p>
+        The recommended method is to rifle through ABS spreadsheets, find the
+        relevant numbers and do the maths.
+      </p>
+      <p>
+        This isn't accessible to the vast majority of renters. This is part of
+        why we see constant cases of renters bullied into extreme rent
+        increases.
+      </p>
+      <p>
+        If anyone from the ACT government wants to pay me for this tool, you can
+        reach me at
+        <a href="mailto:hello@michaelturvey.online"
+          >hello@michaelturvey.online</a
+        >
+      </p>
+    </div>
+    <div class="i-made-this">
+      <div class="attribution">
+        <h2 class="intro">Hey, I made this</h2>
+
+        <div class="michael">
+          <img
+            src="assets/me.jpg"
+            alt="Picture of Michael Turvey, a good-looking young person with blond hair"
+          />
+          <div>
+            <p>My name's Michael. You can find me on:</p>
+            <ul>
+              <li>
+                <a href="https://github.com/tichaelmurvey"
+                  >GitHub (tichaelmurvey)</a
+                >
+              </li>
+              <li>
+                <a href="https://twitter.com/tichaelmurvey"
+                  >Twitter (@tichaelmurvey)</a
+                >
+              </li>
+              <li>
+                <a href="mailto:hello@michaelturvey.online"
+                  >Email (hello@michaelturvey.online)</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div>
+          <p>I had help from Andrew. You can find him on:</p>
+          <ul>
+            <li><a href="https://github.com/ajdlinux">GitHub (ajdlinux)</a></li>
+            <li>
+              <a href="https://twitter.com/ajdlinux">Twitter (@ajdlinux)</a>
+            </li>
+            <li>
+              <a href="mailto:andrew@donnellan.id.au"
+                >Email (andrew@donnellan.id.au)</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="endline">
+        <p>
+          We help run
+          <a href="https://www.greatercanberra.org/">Greater Canberra</a>, an
+          organisation working to legalise more housing and bring down rents and
+          prices. Come join us!
+        </p>
+      </div>
+    </div>
+    <div class="error">
+      <p>
+        Is there a problem with this site?
+        <a href="mailto:hello@michaelturvey.online">Email me</a> with a
+        description of the problem and I'll try to fix it.
+      </p>
+    </div>
     <script
       src="https://code.jquery.com/jquery-3.6.0.js"
       integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
