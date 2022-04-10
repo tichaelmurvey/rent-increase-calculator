@@ -36,25 +36,28 @@ label, input, .date{
     font-size: 1.2rem;
 }
 
-.i-made-this h2 {
+.i-made-this p, .i-made-this ul, .i-made-this h2 {
     text-align: left;
 }
+
 
 .attribution {
     display: flex;
     align-items: flex-end;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .attribution > * {
     margin: 0 1%;
 }
 
+
 .attribution img{
     align-self: center;
-    max-width: 200px;
-    min-width: 15%;
-    border-radius: 100%;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 ul {
