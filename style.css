@@ -36,6 +36,10 @@ label, input, .date{
     font-size: 1.2rem;
 }
 
+.i-made-this h2 {
+    text-align: left;
+}
+
 .attribution {
     display: flex;
     align-items: flex-end;
@@ -50,6 +54,7 @@ label, input, .date{
     align-self: center;
     max-width: 200px;
     min-width: 15%;
+    border-radius: 100%;
 }
 
 ul {
