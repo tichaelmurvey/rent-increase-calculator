@@ -234,14 +234,11 @@ button:hover {
   box-sizing: border-box;
   background-color: #caddf5;
 }
-<<<<<<< HEAD
 .options p{
     padding: 3%;
     box-sizing: border-box;
     background-color: #caddf5;
 }
-=======
->>>>>>> ebe2ed5714514acdb769ce50a7fb0aa74c79691e
 
 .explainer {
   display: none;
