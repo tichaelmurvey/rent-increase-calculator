@@ -2,6 +2,7 @@ async function calculate(){
     console.log("calculating");
     start_parts = $("#Q1").val().split("/");
     end_parts = $("#Q2").val().split("/");
+
     start_date = new Date(start_parts[2], start_parts[1]-1, start_parts[0]);
     end_date = new Date(end_parts[2], end_parts[1]-1, end_parts[0]);
     start = findQuarter(start_date);
@@ -46,8 +47,10 @@ fetch(request).then(
         }   
     ).then(
         (value) => {
+            console.log(value);
             results = value['data']['dataSets'][0]['series']['0:0:0:0:0']['observations'];
-            console.log(results)
+            Quarters = value['data']['structure']['dimensions']['observation'][0]['values'];
+            lastQuarter = Quarters[Quarters.length -1].name;
             results_array = $.map(results, function(el) {return el});
             qstart_cpi = results_array[0];
             qend_cpi = results[results_array.length -1];
@@ -65,7 +68,7 @@ fetch(request).then(
             $("#allowable-increase").text("$" + max_increase);
             $("#start").text(start);
             $("#qstart_cpi").text(qstart_cpi);
-            $("#end").text(end);
+            $("#end").text(lastQuarter);
             $("#qend_cpi").text(qend_cpi);
             $("#cpi_change").text(cpi_change);
             $("#allowable_increase").text(allowable_increase);

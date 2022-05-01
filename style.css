@@ -216,20 +216,6 @@ button:hover {
     background-color: #caddf5;
 }
 
-/* .options p:nth-child(1){
-    background-color: #b2fab6;
-} */
-
-/* .options p:nth-child(2){
-    border: #f5f4ca;
-}
-.options p:nth-child(3){
-    border: #caf5dd;
-}
-.options p:nth-child(4){
-    border: #eecaf5;
-}  */
-
 .explainer {
     display: none;
 }
