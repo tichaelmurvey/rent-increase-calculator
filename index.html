@@ -31,12 +31,16 @@
             </p>
           </label>
           <input id="Q1" placeholder="DD/MM/YYYY" type="text" />
+          <div class="error" id="error-Q1" tabindex = '-1'>
+
+          </div>
         </div>
         <div class="date">
           <label for="Q2">
             <p class="primary">Date of proposed rental increase</p>
           </label>
           <input id="Q2" placeholder="DD/MM/YYYY" type="text" />
+          <div class="error" id="error-Q2" tabindex = '-1'></div>
         </div>
         <label for="current-rent">
           <p class="primary">
@@ -46,6 +50,7 @@
         </label>
         <div class="current-rent">
           <input id="current-rent" type="text" />
+          <div class="error" id="error-current-rent" tabindex = '-1'></div>
           <div class="icon">$</div>
         </div>
       </div>
