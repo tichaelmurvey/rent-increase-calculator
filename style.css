@@ -160,19 +160,22 @@ button:hover {
 
 .current-rent {
   position: relative;
-  width: 100%;
+  display: inline;
 }
 
-.current-rent .icon {
+
+
+.current-rent > i {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 10px;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  text-emphasis: none;
+  display: block;
+  transform: translate(0, -50%);
+  top: 50%;
+  pointer-events: none;
+  width: 25px;
+  text-align: center;
+  font-style: normal;
 }
+
 
 @media only screen and (min-width: 900px) {
   h1 {
@@ -196,13 +199,12 @@ button:hover {
     flex-direction: column;
     justify-content: flex-start;
   }
-
+  .number{
+    width: 40%;
+    margin: auto;
+  }
   .date label {
     min-height: 100px;
-  }
-  .current-rent {
-    width: 50%;
-    margin: auto;
   }
   button {
     width: auto;

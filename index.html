@@ -43,6 +43,7 @@
           <input id="Q2" placeholder="DD/MM/YYYY" type="text" aria-describedby="error-Q2" aria-required="true" aria-invalid="false"/>
           <div class="error" id="error-Q2" tabindex = '-1'></div>
         </div>
+        <div class="number">
         <label for="current-rent">
           <p class="primary">
             Current rent<br />
@@ -51,10 +52,11 @@
         </label>
         <div class="current-rent">
           <input id="current-rent" type="text" aria-describedby="error-current-rent" aria-required="true" aria-invalid="false"/>
-          <div class="error" id="error-current-rent" tabindex = '-1'></div>
-          <div class="icon">$</div>
+          <i>$</i>
         </div>
+        <div class="error" id="error-current-rent" tabindex = '-1'></div>
       </div>
+    </div>
       <button onclick="calculate()" id="calculate">Calculate</button>
       <div id="result" class="results">
         <div class="topline">
