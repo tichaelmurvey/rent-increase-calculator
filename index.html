@@ -30,7 +30,7 @@
               <span class="secondary">(Or start of lease)</span>
             </p>
           </label>
-          <input id="Q1" placeholder="DD/MM/YYYY" type="text" />
+          <input id="Q1" placeholder="DD/MM/YYYY" type="text" aria-describedby="error-Q1" aria-required="true" aria-invalid="false"/>
           <div class="error" id="error-Q1" tabindex = '-1'>
 
           </div>
@@ -39,7 +39,7 @@
           <label for="Q2">
             <p class="primary">Date of proposed rental increase</p>
           </label>
-          <input id="Q2" placeholder="DD/MM/YYYY" type="text" />
+          <input id="Q2" placeholder="DD/MM/YYYY" type="text" aria-describedby="error-Q2" aria-required="true" aria-invalid="false"/>
           <div class="error" id="error-Q2" tabindex = '-1'></div>
         </div>
         <label for="current-rent">
@@ -49,7 +49,7 @@
           </p>
         </label>
         <div class="current-rent">
-          <input id="current-rent" type="text" />
+          <input id="current-rent" type="text" aria-describedby="error-current-rent" aria-required="true" aria-invalid="false"/>
           <div class="error" id="error-current-rent" tabindex = '-1'></div>
           <div class="icon">$</div>
         </div>
@@ -66,6 +66,9 @@
         <div class="midline">
           <p class="secondary">Allowable rent increase</p>
           <p id="allowable-increase" class="value">$10</p>
+        </div>
+        <div id="less-than-year">
+          <p>The dates you entered are less than 12 months apart. According to <a href="https://www.legalaidact.org.au/sites/default/files/files/publications/Rent_Increases-2_September_2021.pdf">Legal Aid ACT's guidance for rent increases (PDF, 97KB)</a>, rent can only be increased at the end of a tenancy of 12 months or more, or every 12 months in a periodic lease.</p>
         </div>
         <button id="explainer" onclick="explain()" aria-expanded="false">
           How was this calculated?

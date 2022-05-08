@@ -5,19 +5,30 @@ async function calculate(){
     if(!valiDate($("#Q1").val())){
         $("#error-Q1").show();
         $("#error-Q1").text("Please enter a valid date")
+        $("#Q1").attr("aria-invalid","true");
         error=true;
     } else {
         $("#error-Q1").hide();
+        $("#Q1").attr("aria-invalid","false");
+
     }
     if(!valiDate($("#Q2").val())){
         $("#error-Q2").show();
-        $("#error-Q2").text("Please enter a valid date")
+        $("#error-Q2").text("Please enter a valid date");
+        $("#Q2").attr("aria-invalid","true");
         error=true;
     } else {
         $("#error-Q2").hide();
+        $("#Q2").attr("aria-invalid","false");
     }
-    if(!Number.isInteger($("#current-rent").val())){
+    if(!(Number($("#current-rent").val()) > 0)){
+        $("#error-current-rent").show();
         $("#error-current-rent").text("Please enter a number");
+        $("#current-rent").attr("aria-invalid","true");
+        error = true;
+    } else {
+        $("#error-current-rent").hide();
+        $("#current-rent").attr("aria-invalid","false");
     }
     if(!error){
     console.log("calculating");
@@ -26,6 +37,11 @@ async function calculate(){
 
     start_date = new Date(start_parts[2], start_parts[1]-1, start_parts[0]);
     end_date = new Date(end_parts[2], end_parts[1]-1, end_parts[0]);
+    if(!yearCheck(start_date, end_date)){
+        $("#less-than-year").show();
+    } else {
+        $("#less-than-year").hide();
+    }
     start = findQuarter(start_date);
     end = findQuarter(end_date);
     console.log(start);
@@ -40,6 +56,15 @@ async function explain(){
     $("#explainer").attr('aria-expanded', function (i, attr) {
         return attr == 'true' ? 'false' : 'true'
     });
+}
+
+function yearCheck(start_date, end_date){
+    year_later = new Date(start_date.getFullYear() + 1, start_date.getMonth(), start_date.getDate());
+    if(year_later > end_date){
+        return false;
+    } else{
+        return true;
+    }
 }
 
 function findQuarter(date){
