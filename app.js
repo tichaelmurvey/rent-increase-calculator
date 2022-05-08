@@ -1,20 +1,25 @@
 
 
 async function calculate(){
-    var dateformat = /^(0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])[\/\-]\d{4}$/;
+    error = false;
     if(!valiDate($("#Q1").val())){
         $("#error-Q1").show();
         $("#error-Q1").text("Please enter a valid date")
+        error=true;
     } else {
         $("#error-Q1").hide();
     }
     if(!valiDate($("#Q2").val())){
         $("#error-Q2").show();
-
         $("#error-Q2").text("Please enter a valid date")
+        error=true;
     } else {
         $("#error-Q2").hide();
     }
+    if(!Number.isInteger($("#current-rent").val())){
+        $("#error-current-rent").text("Please enter a number");
+    }
+    if(!error){
     console.log("calculating");
     start_parts = $("#Q1").val().split("/");
     end_parts = $("#Q2").val().split("/");
@@ -26,6 +31,7 @@ async function calculate(){
     console.log(start);
     console.log(end);
     getObs(start, end);
+    }
 }
 
 async function explain(){
