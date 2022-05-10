@@ -43,7 +43,7 @@ async function calculate(){
         $("#less-than-year").hide();
     }
     start = findQuarter(start_date);
-    end = findQuarter(end_date);
+    end = findLastQuarter(end_date);
     console.log(start);
     console.log(end);
     getObs(start, end);
@@ -67,6 +67,21 @@ function yearCheck(start_date, end_date){
     }
 }
 
+//Months look wrong beacuse they cound from 0
+function findLastQuarter(date){
+    month = date.getMonth();
+    if(month < 3){
+        return((date.getFullYear()-1) + "-" + "Q4");
+    } else if(month < 6){
+        quarterData = "Q1";
+    } else if(month < 9){
+        quarterData = "Q2";
+    } else {
+        quarterData = "Q3"
+    }
+    return date.getFullYear() + "-" + quarterData;
+}
+
 function findQuarter(date){
     quarterData = '';
     month = date.getMonth();
@@ -83,7 +98,7 @@ function findQuarter(date){
     return quarterData;
 }
 async function getObs(startQtr, endQtr){
-const requestURL = 'https://api.data.abs.gov.au/data/ABS%2CCPI%2C1.0.0/1.115522.10.8.Q?startPeriod=' + startQtr + '&endPeriod=' + endQtr + '&detail=dataonly';
+const requestURL = 'https://api.data.abs.gov.au/data/ABS,CPI,1.1.0/1.30014.10+20.8.Q?startPeriod=' + startQtr + '&endPeriod=' + endQtr + '&detail=dataonly';
 
 const headers = new Headers({'Accept': 'application/vnd.sdmx.data+json'});
 const request = new Request(requestURL, {headers: headers});
