@@ -164,7 +164,9 @@ button:hover {
 }
 
 
-
+.tertiary {
+  font-size: 1.2rem;
+}
 .current-rent > i {
   position: absolute;
   display: block;
