@@ -42,7 +42,7 @@ async function calculate(){
     } else {
         $("#less-than-year").hide();
     }
-    start = findQuarter(start_date);
+    start = findLastQuarter(start_date);
     end = findLastQuarter(end_date);
     console.log(start);
     console.log(end);
